@@ -25,6 +25,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pdfworker.ui.features.ImageToPdfScreen
 import com.example.pdfworker.ui.features.MergePdfScreen
 import com.example.pdfworker.ui.theme.PdfWorkerTheme
 
@@ -37,6 +38,7 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
                     composable("merge_pdf") { MergePdfScreen(navController) }
+                    composable("image_to_pdf") { ImageToPdfScreen(navController) }
                 }
             }
         }
@@ -121,7 +123,7 @@ fun GlassmorphicBottomNavBar() {
 @Composable
 fun FeatureGrid(navController: NavController) {
     val features = listOf(
-        "Merge PDF", "Split PDF", "PDF to Word",
+        "Merge PDF", "Image to PDF", "PDF to Word",
         "Compress PDF", "PDF to JPG", "My Files"
     )
 
@@ -144,8 +146,9 @@ fun FeatureCard(feature: String, navController: NavController) {
             .aspectRatio(1f)
             .clip(RoundedCornerShape(24.dp))
             .clickable { 
-                if (feature == "Merge PDF") {
-                    navController.navigate("merge_pdf")
+                when (feature) {
+                    "Merge PDF" -> navController.navigate("merge_pdf")
+                    "Image to PDF" -> navController.navigate("image_to_pdf")
                 }
             },
         shape = RoundedCornerShape(24.dp),
@@ -173,7 +176,7 @@ fun FeatureCard(feature: String, navController: NavController) {
 fun getIconForFeature(feature: String): Int {
     return when (feature) {
         "Merge PDF" -> R.drawable.ic_merge
-        "Split PDF" -> R.drawable.ic_split
+        "Image to PDF" -> R.drawable.ic_image_to_pdf
         "PDF to Word" -> R.drawable.ic_pdf_to_word
         "Compress PDF" -> R.drawable.ic_compress
         "PDF to JPG" -> R.drawable.ic_pdf_to_jpg

@@ -1,3 +1,4 @@
 <paths>
     <files-path name="merged_pdfs" path="merged_pdfs/" />
+    <files-path name="image_to_pdf" path="image_to_pdf/" />
 </paths>
