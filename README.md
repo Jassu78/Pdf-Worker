@@ -14,7 +14,7 @@ An elegant, modern PDF utility application for Android, built entirely with Jetp
 
 ## 📲 Screenshots
 
-*(placeholder for your app screenshots)*
+*(screenshots will come in future)* --> you can directly download and view the app from releases. 
 
 ## 🛠️ Built With
 
